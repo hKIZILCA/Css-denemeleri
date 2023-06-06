@@ -1,0 +1,48 @@
+<html>
+    <link rel="stylesheet" href="index.css">
+
+<link rel="stylesheet" herf="https://stackpath.bootstrapcnd.com/font-awesome/4.7.0/css/font-awesome.win.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <ul>
+        <li>
+            <a href="home.html"><i class="fa fa-home"></i></a>
+        </li>
+        <li>
+            <a href=""><i class ="fa fa-user-circle-o"></i></a>
+        </li>
+        <li class="activo">
+            <a><i class="fa fa-plus-square-o"></i></a>
+        </li>
+        <li>
+            <a><i class="fa fa-send-o"></i></a>
+        </li>
+        <li>
+            <a><i class="fa fa-gear"></i></a>
+        </li>
+        <div id="marcador">
+        </div>
+    </ul>
+    <script>
+        let marcador = document.querySelector('#marcador');
+        let list = document.querySelectorAll('ul li');
+
+        function moverIindicador(e){
+            marcador.style.left = e.offsetLeft+'px';
+            marcador.style.width = e.offsetWidth+'px';
+        }
+        list.forEach(link =>{
+            link.addEventListener('mousemove', (e) => {
+                moverIindicador(e.target);
+            })
+        })
+        function activo(){
+            list.forEach((item) =>
+            item.classList.remove('activo'));
+            this.classList.add('activo');
+        }
+        list.forEach((item) =>
+        item.addEventListener('mousemove', activo));
+    </script>
+</body>
+</html>
